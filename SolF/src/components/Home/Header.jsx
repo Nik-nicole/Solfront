@@ -9,7 +9,14 @@ const Header = ({ showAuthButtons = true }) => {
   };
 
   return (
-    <header className="fixed w-full bg-black bg-opacity-45 shadow-md mt-5 rounded-xl transition-transform duration-300 ease-in-out z-50 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-4">
+    <header className="fixed top-0 left-0 w-full 
+    bg-black/40 backdrop-blur-sm 
+    mt-5 rounded-xl shadow-md 
+    transition-transform duration-300 ease-in-out z-50 
+    px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-4"
+  >
+  
+
       <nav>
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo */}
@@ -50,7 +57,7 @@ const Header = ({ showAuthButtons = true }) => {
                 to="/signup" 
                 className="font-bold px-7 py-1 bg-emerald-600 text-white rounded-xl hover:bg-[#6AD0B2] transition-colors"
               >
-                Registrate
+                Registrate  
               </Link>
               <Link 
                 to="/login" 
