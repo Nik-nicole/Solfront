@@ -1,7 +1,14 @@
 import React from "react";
-import hands from '../../assets/hands.png'
+import hands from '../../assets/hands.png';
+import Button from "./../Form/Button.jsx";  // Importamos el botón
 
 const Welcome = () => {
+  // Función para manejar el clic en el botón
+  const handleClick = () => {
+    console.log("Botón presionado");
+    // Aquí puedes agregar lógica, como navegación o abrir un modal
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#D6ECD7] via-emerald-100 to-emerald-400">
       {/* Hero Section */}
@@ -17,17 +24,19 @@ const Welcome = () => {
         </div>
 
         {/* Title */}
-        <h1 className="text-7xl font-bold text-neutral-700  mb-2">Sol</h1>
+        <h1 className="text-7xl font-bold text-neutral-700 mb-2">Sol</h1>
 
         {/* Subtitle */}
-        <p className="text-xl text-neutral-700  mb-8">
-          Our AI model about Colombian signs
+        <p className="text-xl text-neutral-700 mb-8">
+          Nuestro modelo de AI en Lengua de Señas Colombiano
         </p>
 
-        {/* CTA Button */}
-        <button className="px-6 py-2 border-2 border-customGray bg-gray-200 bg-opacity-50 text-neutral-700  rounded-xl hover:bg-gray-200 transition-colors">
-          See more
-        </button>
+        {/* CTA Button usando el componente Button */}
+        <Button 
+          text="Ver más" 
+
+          className="px-6 py-2 border-2 border-gray-400 bg-gray-200 text-neutral-700 rounded-xl hover:bg-gray-300 transition-colors"
+        />
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 animate-bounce"></div>

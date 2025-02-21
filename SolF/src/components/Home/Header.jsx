@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"; // Si usas React Router
+import { Link } from "react-router-dom";
+import Button from "./../Form/Button.jsx"; 
+
 
 const Header = ({ showAuthButtons = true }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,8 +17,6 @@ const Header = ({ showAuthButtons = true }) => {
     transition-transform duration-300 ease-in-out z-50 
     px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-4"
   >
-  
-
       <nav>
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo */}
@@ -44,7 +44,7 @@ const Header = ({ showAuthButtons = true }) => {
             </svg>
           </button>
 
-          {/* Enlaces de navegación (visibles en desktop) */}
+          {/* Enlaces de navegación */}
           <div className="hidden md:flex items-center justify-between gap-16 lg:gap-40 mx-auto">
             <Link to="#" className="text-white hover:text-gray-400">Modelos</Link>
             <Link to="#" className="text-white hover:text-gray-400">Doc</Link>
@@ -53,17 +53,17 @@ const Header = ({ showAuthButtons = true }) => {
           {/* Botones de autenticación */}
           {showAuthButtons && (
             <div className="flex items-center gap-4">
-              <Link 
-                to="/signup" 
-                className="font-bold px-7 py-1 bg-emerald-600 text-white rounded-xl hover:bg-[#6AD0B2] transition-colors"
-              >
-                Registrate  
+              <Link to="/signup">
+                <Button 
+                  text="Regístrate" 
+                  className="bg-emerald-600 text-white hover:bg-[#6AD0B2]" 
+                />
               </Link>
-              <Link 
-                to="/login" 
-                className="font-bold px-7 py-1 border-2 rounded-xl text-white hover:text-emerald-700"
-              >
-                Inicia sesión
+              <Link to="/login">
+                <Button 
+                  text="Inicia sesión" 
+                  className="border-2 text-white hover:text-emerald-700" 
+                />
               </Link>
             </div>
           )}

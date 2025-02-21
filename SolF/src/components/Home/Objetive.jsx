@@ -107,7 +107,7 @@ export default function ObjectiveSection() {
             </motion.svg>
             
             <p className="text-gray-100 text-lg leading-relaxed relative z-10 ">
-              SigNa es un intérprete que utiliza Machine Learning y Deep Learning para reducir las barreras de comunicación entre personas Sordas y Oyentes. Al facilitar la interacción en entornos educativos, laborales y cotidianos, promueve la igualdad de oportunidades y fomenta la inclusión social.
+              Sol es un intérprete que utiliza Machine Learning y Deep Learning para reducir las barreras de comunicación entre personas Sordas y Oyentes. Al facilitar la interacción en entornos educativos, laborales y cotidianos, promueve la igualdad de oportunidades y fomenta la inclusión social.
             </p>
           </div>
           <div className="absolute -top-4 -right-4 bg-emerald-400 w-12 h-12 rounded-full flex items-center justify-center text-gray-900 font-bold text-xl shadow-lg">
