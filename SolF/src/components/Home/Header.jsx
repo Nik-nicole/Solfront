@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Button from "./../Form/Button.jsx"; 
 
 
+
 const Header = ({ showAuthButtons = true }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -53,7 +54,7 @@ const Header = ({ showAuthButtons = true }) => {
           {/* Botones de autenticación */}
           {showAuthButtons && (
             <div className="flex items-center gap-4">
-              <Link to="/signup">
+              <Link to="/Form">
                 <Button 
                   text="Regístrate" 
                   className="bg-emerald-600 text-white hover:bg-[#6AD0B2]" 

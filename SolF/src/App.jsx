@@ -1,27 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-//rutes 
-import Home from './pages/Home.jsx';
-
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import Form from "./pages/Login.jsx"; // ✅ Importa correctamente Form
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <BrowserRouter>
       <Routes>
-      <Route path='/' element={<Home />} />
-
-      </Routes>    
-    
+        <Route path="/" element={<Home />} />  {/* ✅ Página principal */}
+        <Route path="/form" element={<Form />} /> {/* ✅ Página del formulario */}
+      </Routes>
     </BrowserRouter>
-
-  )
+  );
 }
 
-export default App
+export default App;
