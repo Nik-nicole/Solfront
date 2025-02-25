@@ -1,16 +1,20 @@
+import { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 import Button from "./Button";
 import Input from "./Inputs";
+import NavLinks from "./NavLinks";
 
 const AuthForm = ({
     title,
     subtitle,
     inputs,
-    buttonText,
-    linkText,
-    linkHref,
+    buttonText,    
     linkImg,
+    links,
     onSubmit
 }) => {
+    const [showPassword, setShowPassword] = useState(false);
+
     return (
         <div className="flex min-h-screen">
             {/* Logo y título */}
@@ -32,17 +36,24 @@ const AuthForm = ({
 
                     {/* Formulario */}
                     <form onSubmit={onSubmit} className="w-full max-w-sm mx-auto space-y-6">
-                      
-
                         {/* Inputs */}
                         {inputs.map((input, index) => (
-                            <div key={index}>
-                                <label className="text-gray-600 text-sm">{input.placeholder}</label>
+                            <div key={index} className="relative">
+                                <label className="text-gray-600 text-sm"></label>
                                 <Input
-                                    type={input.type}
+                                    type={input.type === "password" && showPassword ? "text" : input.type}
                                     placeholder={input.placeholder}
                                     className="w-full p-3 border-b-1 focus:outline-none focus:border-emerald-400"
                                 />
+                                {input.type === "password" && (
+                                    <button
+                                        type="button"
+                                        onClick={() => setShowPassword(!showPassword)}
+                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-emerald-600 "
+                                    >
+                                        {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                                    </button>
+                                )}
                             </div>
                         ))}
 
@@ -55,14 +66,11 @@ const AuthForm = ({
 
                     {/* Enlace de registro/login */}
                     <p className="text-center text-sm text-gray-500">
-                        {linkText && (
-                            <>
-                                {linkText.split("?")[0]}
-                                <a href={linkHref} className="text-black hover:underline underline-offset-4">
-                                    {linkText.split("?")[1]}
-                                </a>
-                            </>
-                        )}
+                        {links.map((input, index) => (
+                            <div key={index}>
+                                <NavLinks linkHref={input.linkHref} linkText={input.linkText}/>
+                            </div>
+                        ))}
                     </p>
                 </div>
             </div>

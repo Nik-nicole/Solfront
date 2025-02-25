@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import AuthForm from "../components/Form/AuthForm";
+import login from "../assets/login.jpg"
 
-const Form = () => {  
+const Login = () => {  
 
   return (
     <AuthForm
@@ -11,9 +12,14 @@ const Form = () => {
       { type: "email", placeholder: "Email" },
       { type: "password", placeholder: "Contraseña" }
     ]}
-    buttonText="Ingresar"
-    linkText="¿No tienes una cuenta? Regístrate Gratis"
-    linkHref="/register"
+    buttonText="Ingresar"    
+    links={
+          [
+            {linkHref: "/sign", linkText: "¿Ya tienes una cuenta?, Registrate"},
+            {linkHref: "/", linkText: "Olvisdaste tu contraseña"}
+          ]
+        }
+    linkImg={login}
     onSubmit={(e) => {
       e.preventDefault();
       console.log("Iniciando sesión...");
@@ -22,4 +28,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default Login;
