@@ -15,7 +15,7 @@ const SignUp =()=>{
     buttonText="Registrar"
     links={
       [
-        {linkHref: "/login", linkText: ""},
+        {linkHref: "/login", linkText: "¿Ya tienes una cuenta?inicia sesion"},
         {linkHref: "/", linkText: ""}
       ]
     }       
