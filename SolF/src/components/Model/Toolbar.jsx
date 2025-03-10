@@ -3,9 +3,9 @@ import { Cat, UserRound, Apple } from "lucide-react";
 import ToolbarButton from "./ToolbarButton";
 
 const buttons = [
-  { id: "cat", icon: Cat, title: "Gato - Animal", label: "Gato" },
-  { id: "user", icon: UserRound, title: "Usuario - Persona", label: "Usuario" },
-  { id: "apple", icon: Apple, title: "Manzana - Fruta", label: "Manzana" },
+  { id: "cat", icon: Cat, title: "Gato - Animal", label: "Animales" },
+  { id: "user", icon: UserRound, title: "Usuario - Persona", label: "Palabras Base" },
+  { id: "apple", icon: Apple, title: "Manzana - Fruta", label: "Frutas" },
 ];
 
 const Toolbar = () => {

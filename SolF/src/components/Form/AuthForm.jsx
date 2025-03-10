@@ -3,7 +3,7 @@ import { Eye, EyeOff } from "lucide-react";
 import Button from "./Button";
 import Input from "./Inputs";
 import NavLinks from "./NavLinks";
-import { Modal } from "./Modal";
+import Modal from "../Form/Modal";
 
 const AuthForm = ({
   title,
@@ -14,20 +14,15 @@ const AuthForm = ({
   links,
   handleLogin,
   onChange,
-  error,         // Nuevo prop para el mensaje de error
-  onCloseError   // Función para cerrar el modal (opcional)
+  error,         
+  onCloseError,  // <-- Agrega la coma aquí
+  googleSignInComponent // <-- Y la prop aquí
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
     <>
-      {/* Modal de error */}
-      {error && (
-        <Modal
-            onCloseError={onCloseError}
-            error={error}
-        />
-      )}
+      {error && <Modal onCloseError={onCloseError} error={error} />}
 
       <div className="flex min-h-screen">
         {/* Logo y título */}
@@ -61,10 +56,10 @@ const AuthForm = ({
                         ? "text"
                         : input.type
                     }
-                    name={input.name}             // Nombre del campo
-                    valueInput={input.value}       // Valor del campo
+                    name={input.name}
+                    valueInput={input.value}
                     placeholder={input.placeholder}
-                    onChange={onChange}            // Handler que actualiza el estado
+                    onChange={onChange}
                     className="w-full p-3 border-b border-gray-300 focus:outline-none focus:border-emerald-400"
                   />
                   {input.type === "password" && (
@@ -79,12 +74,19 @@ const AuthForm = ({
                 </div>
               ))}
 
-              {/* Botón de acción */}
+              {/* Botón de acción (login tradicional) */}
               <Button
                 text={buttonText}
-                type="submit" // Se asegura que el botón sea de tipo submit
+                type="submit"
                 className="w-full bg-emerald-400 hover:bg-emerald-500 text-white py-2 rounded-md transition-colors"
               />
+
+              {/* Aquí colocas el componente de Google Sign In, si existe */}
+              {googleSignInComponent && (
+                <div className="flex justify-center mt-4 border-0 ">
+                  {googleSignInComponent}
+                </div>
+              )}
             </form>
 
             {/* Enlaces */}

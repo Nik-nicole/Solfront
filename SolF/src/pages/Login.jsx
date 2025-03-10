@@ -1,55 +1,50 @@
+// Login.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import login from "../assets/login.jpg"; // Asegúrate de tener la ruta correcta
-import { auth } from "../services/authService"; // Importa tu función de autenticación
+import login from "../assets/login.jpg";
+import { auth } from "../services/authService";
 import AuthForm from "../components/Form/AuthForm";
+import Modal from "../components/Form/Modal";
+import GoogleSignIn from "../components/Form/GoogleSingin";
+import { createGoogleHandlers } from "../services/googleAuth"; // Importa tu función
 
 const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  
-  // Estado que almacena los datos del formulario
+
+  // Llamas a la función para obtener handleGoogleSuccess y handleGoogleError
+  const { handleGoogleSuccess, handleGoogleError } = createGoogleHandlers(navigate, setError);
+
   const [formData, setFormData] = useState({
     email: "",
     password: ""
   });
-  
-  // Handler para actualizar el estado de cada input
+
+  // Actualiza campos
   const handleChange = (e) => {
-    console.log("handleChange - Campo:", e.target.name, "Valor:", e.target.value);e
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const onCloseError = () => setError("")
-  
-  // Maneja el envío del formulario
+  // Cierra el modal de error
+  const onCloseError = () => setError("");
+
+  // Login local
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
-    console.log("handleLogin - Datos del formulario:", formData);
-  
-    const { email, password } = formData;
-  
     try {
-      const success = await auth(email, password);
-      console.log("handleLogin - Respuesta de auth:", success);
+      const success = await auth(formData.email, formData.password, setError);
       if (success) {
         navigate("/model");
-      } else {
-        console.warn("handleLogin - Autenticación fallida");
-        setError("Autenticación fallida");
       }
     } catch (error) {
-      console.error("handleLogin - Error en la autenticación:", error);
+      console.error("Error en la autenticación:", error);
       setError("Error de conexión con el servidor");
     }
   };
 
   return (
-    <>      
+    <>
       <AuthForm
         title="Bienvenido de nuevo a Sol"
         subtitle="Ingresa la información"
@@ -64,10 +59,15 @@ const Login = () => {
         ]}
         linkImg={login}
         handleLogin={handleLogin}
-        onChange={handleChange}  // Se pasa el handler para actualizar el estado        
-        error={error}            // Prop para mostrar el error en el modal
-        onCloseError={onCloseError} // Función para cerrar el modal de error
+        onChange={handleChange}
+        error={error}
+        onCloseError={onCloseError}
+        googleSignInComponent={
+          <GoogleSignIn onSuccess={handleGoogleSuccess} onError={handleGoogleError} />
+        }
       />
+
+      {error && <Modal error={error} onCloseError={onCloseError} />}
     </>
   );
 };
