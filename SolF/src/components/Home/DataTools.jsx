@@ -9,7 +9,7 @@ const technologies = [
   {
     name: 'YOLO',
     description: 'A real-time object detection system.',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/YOLO_logo.png'
+    image: 'https://res.cloudinary.com/apideck/image/upload/v1674167934/marketplaces/ckhg56iu1mkpc0b66vj7fsj3o/listings/yologo_2_lopvlj.png'
   },
   {
     name: 'Python',
