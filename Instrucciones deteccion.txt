@@ -1,0 +1,40 @@
+Guía sobre diferentes formas de usar la detección de manos para el reconocimiento de lengua de señas
+Puntos clave sobre la detección de manos con MediaPipe
+
+👉 MediaPipe Hand Landmarker (en español)
+https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker?hl=es-419
+
+Uso del archivo .tflite
+👉 Guía de TensorFlow Lite (en español)
+https://www.tensorflow.org/lite/guide?hl=es-419
+
+El modelo .tflite es más fácil de usar y ocupa menos espacio. Aún no he encontrado cómo convertir imágenes desde Keras a .tflite, pero tengo enlaces útiles con ejemplos en YouTube y GitHub.
+
+Ejemplo: Detección de lengua de señas india
+
+📄 Artículo científico (PDF)
+https://www.iosrjournals.org/iosr-jce/papers/Vol22-issue3/Series-1/B2203011419.pdf
+
+🎥 Video explicativo en YouTube
+https://www.youtube.com/watch?v=8wj0D_wCf3g&t
+
+💻 Repositorio en GitHub
+https://github.com/Karthikeyu/Indian-sign-language-recognition
+
+
+Ejemplo: Detección de lengua de señas americana (ASL)
+
+🎥 Video en YouTube
+https://www.youtube.com/watch?v=7sywpZ7o2gg&t
+
+💻 Repositorio en GitHub
+https://github.com/kinivi/hand-gesture-recognition-mediapipe
+
+Guía para predecir y leer gestos de las manos
+Primero, es importante probar con un histograma para analizar si las manos se están leyendo correctamente o si hay errores de detección.
+
+📄 Archivo:
+Indian-sign-language-recognition\unused_files\set_hand_histogram.py
+
+📹 Explicación sobre errores en la lectura con histogramas:
+https://www.youtube.com/watch?v=L93OJHwAjV8&t=496s
